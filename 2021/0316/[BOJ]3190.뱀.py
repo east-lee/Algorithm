@@ -22,8 +22,9 @@ def main():
                 d += 1
             else:
                 d -= 1
-            if d<0 or d>3:
+            if d>3:
                 d = 0
+            elif d<0: d=3
             direction_change.pop(0)
     return cnt
 
