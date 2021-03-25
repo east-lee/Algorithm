@@ -1,7 +1,7 @@
 # D => (2*n)%10000
 # S => n-1 if n != 0 else 9999
 # L => d1 d2 d3 d4  > d2 d3 d4 d1
-# R => d1 d2 d3 d4 > d4 d1 d2 d3
+# R => d1 d2 d3 d4 > d4 d1 d2 d3 commit  test
 
 
 def main(a,b,result):
