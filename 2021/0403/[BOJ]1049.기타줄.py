@@ -10,7 +10,7 @@ if __name__ == "__main__":
     cnt = 0
     min_result = 100000000000000000
     while cnt < N//6+2:
-        
+
         if N-cnt*6 >0:
             cost = cnt*min_cost[0] + (N-cnt*6)*min_cost[1]
         else:
