@@ -21,9 +21,10 @@ wrong_name = {
 
 fix_name = {}
 
-
+cnt = 0
 for folder in folders:
     folders_dict[folder] = listdir(f'./{folder}')
+    cnt += len(folders_dict[folder])
     fix_name[folder] = f'[{folder}]'
 
 
@@ -35,3 +36,5 @@ for folder_name, files in folders_dict.items():
                 rename(f'./{folder_name}/{name}',
                        f'./{folder_name}/{new_name}')
                 break
+
+print(f'20/12/11 ~ 현재까지 : {cnt}문제 풀었습니다!')
