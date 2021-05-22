@@ -22,6 +22,7 @@ def main():
 
 
 direction = [[-1,0],[1,0],[0,-1],[0,1]]
+
 if __name__ == "__main__":
     M, N = map(int,input().split())
     arr = list(list(map(int,input().split())) for _ in range(M))
