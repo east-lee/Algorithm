@@ -8,9 +8,7 @@ def main():
   result[N-1] = mid_num+ 2
 
   for r in result: print(r)
-
-
-
+  
 if __name__ == "__main__":
   N = int(input())
   if N <= 3:
