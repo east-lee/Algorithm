@@ -1,7 +1,3 @@
-
-
-
-
 def get_data():
   N = int(input())
   todo_list = [
