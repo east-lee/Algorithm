@@ -20,34 +20,34 @@
 
 # KMP 알고리즘 , 코드 => 블로그 참조
 def getPI(pattern):
+  global pi
+
   j = 0
-  for i in range(1, len(pattern)):
-    while j > 0 and pattern[i] != pattern[j]:
+  for i in range(1, len(P)):
+    while j > 0 and P[i] != P[j]:
       j = pi[j - 1]
-    if pattern[i] == pattern[j]:
+    if P[i] == P[j]:
       j += 1
       pi[i] = j
 
 
-def KMP(s, pattern):
-  getPI(pattern)
+def KMP():
+  getPI()
   j = 0
-  for i in range(len(s)):
-    while j > 0 and s[i] != pattern[j]:
+  for i in range(len(S)):
+    while j > 0 and S[i] != P[j]:
       j = pi[j - 1]
-    if s[i] == pattern[j]:
-      if j == len(pattern) - 1:
+    if S[i] == P[j]:
+      if j == len(P) - 1:
         return True
-      else:
-        j += 1
+      j += 1
+
   return False
 
+if __name__ == "__main__":
+  S, P = list(list(input()) for _ in range(2))
+  pi = [0 for _ in range(len(P))]
 
-s = input()
-pattern = input()
-pi = [0 for x in range(len(pattern))]
+  result = KMP()
 
-if KMP(s, pattern):
-  print('1')
-else:
-  print('0')
+  print(1) if result else print(0)
