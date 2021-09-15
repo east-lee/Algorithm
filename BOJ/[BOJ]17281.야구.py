@@ -31,19 +31,21 @@ def play_game(order):
   result = max(result, score)
 
 
-def set_player_order(k=0, order = []):
-  global visited
+def set_player_order(k=0):
+  global visited, order
   if k == 9:
     play_game(order)
     return
 
   if k == 3:
-    set_player_order(k+1, order + [0])
+    set_player_order(k+1)
   else:
     for i in range(1,9):
       if visited[i]: continue
       visited[i] = 1
-      set_player_order(k+1,order+[i])
+      order[k] = i
+      set_player_order(k+1)
+      order[k] = 0
       visited[i] = 0
 
 def get_data():
@@ -58,6 +60,7 @@ def get_data():
 if __name__ == "__main__":
   N, player_info = get_data()
   visited = [0] * 9
+  order = [0] * 9
   result = 0
   set_player_order()
   print(result)
