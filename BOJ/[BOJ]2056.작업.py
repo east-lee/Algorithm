@@ -13,7 +13,7 @@ def get_data():
         link[i] = [j]
       else:
         link[i].append(j)
-        
+
   return [N, working_time, link]
 
 
