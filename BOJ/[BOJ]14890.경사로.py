@@ -8,7 +8,8 @@ def check_pos(i,j,dir):
   visited = [0] * N
   for k in range(1, N):
     y, x = i + direction[dir][0] * k, j + direction[dir][1] * k
-
+    # if i == 3 and j == 0 and dir == 0:
+    #   print(visited, k)
     if abs(arr[y][x] - current_height) >= 2:
       return False
     elif arr[y][x] == current_height:
@@ -16,8 +17,9 @@ def check_pos(i,j,dir):
     elif arr[y][x] == current_height + 1:
       for m in range(1,L+1):
         cy, cx = y - direction[dir][0]*m, x - direction[dir][1] * m
-        if check_range(cy, cx) and not visited[max(cy,cx)] and arr[cy][cx] == current_height:
-          visited[max(cy,cx)] = 1
+        check_visited = cy if dir == 1 else cx
+        if check_range(cy, cx) and not visited[check_visited] and arr[cy][cx] == current_height:
+          visited[check_visited] = 1
           continue
         else:
           return False
@@ -25,13 +27,15 @@ def check_pos(i,j,dir):
     elif arr[y][x] == current_height - 1:
       for m in range(L):
         cy, cx = y + direction[dir][0] * m, x + direction[dir][1] * m
-        if check_range(cy, cx) and not visited[max(cy,cx)] and arr[cy][cx] == current_height - 1:
-          visited[max(cy,cx)] = 1
+        check_visited = cy if dir == 1 else cx
+        if check_range(cy, cx) and not visited[check_visited] and arr[cy][cx] == current_height - 1:
+          visited[check_visited] = 1
           continue
         else:
           return False
       current_height -= 1
-  print(i, j)
+  # print(i, j)
+  # print(visited)
   return True
 
 def get_data():
