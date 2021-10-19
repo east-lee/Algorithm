@@ -6,7 +6,7 @@ def get_data():
 
 def checking(i,j,stone_color):
 
-    for k in range(8):
+    for k in range(4):
         cnt = 0
         save_list = []
         y, x = i ,j
@@ -17,21 +17,20 @@ def checking(i,j,stone_color):
 
             y += direction[k][0]
             x += direction[k][1]
-            # print(cnt)
+
         if cnt == 5:
-            return save_list
+            if 0<=i-direction[k][0]<N and 0<=j-direction[k][1] <N and game_board[i-direction[k][0]][j-direction[k][1]] == stone_color:
+                continue
+            else:
+                return save_list
     return False
-
-
-
 
 
 if __name__ == "__main__":
     N, game_board = get_data()
-    direction = [
-        [-1,1], [0,1], [1,1], [1,0], [1,-1], [0,-1],[-1,-1],[-1,0]
-    ]
+    direction = [[-1,1], [0,1], [1,1], [1,0]]
     result = False
+
     for i in range(N):
         for j in range(N):
             if game_board[i][j] == 0:
@@ -43,12 +42,13 @@ if __name__ == "__main__":
                 else:
                     break
         if result: break
+
     if not result:
         print(0)
     else:
-        result.sort(key=lambda x:(x[0], x[1]))
+        result.sort(key=lambda x:(x[1], x[0]))
         result_y, result_x = result[0][0], result[0][1]
-
+        # print(result)
         print(game_board[result_y][result_x])
         print(result_y + 1, end= " ")
         print(result_x + 1)
