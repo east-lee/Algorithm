@@ -8,6 +8,8 @@ def get_data():
 
 
 if __name__ == "__main__":
+    arr = get_data()
+    arr.sort()
     N, K = get_data()
     pos_mod = [False] * (K)
     check_num = N
